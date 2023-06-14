@@ -440,6 +440,14 @@ namespace Terminal {
                 tooltip_text = _("Settings"),
                 valign = Gtk.Align.CENTER
             };
+            
+            var paste_button = new Gtk.Button () {
+                can_focus = false,
+                image = new Gtk.Image.from_icon_name ("edit-paste", Gtk.IconSize.SMALL_TOOLBAR),
+                tooltip_text = _("Paste"),
+                valign = Gtk.Align.CENTER,
+                action_name = ACTION_PREFIX + ACTION_PASTE
+            };
 
             var header = new Hdy.HeaderBar () {
                 show_close_button = true,
@@ -447,6 +455,7 @@ namespace Terminal {
             };
             header.pack_end (menu_button);
             header.pack_end (search_button);
+            header.pack_end (paste_button);
 
             unowned Gtk.StyleContext header_context = header.get_style_context ();
             header_context.add_class ("default-decoration");
